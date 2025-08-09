@@ -15,5 +15,5 @@ def message():
     response = luna.respond(emotion)
     return jsonify({"response": response})
 
-if name == "__main__":
+if __name__ == "__main__":
     app.run(debug=True)
