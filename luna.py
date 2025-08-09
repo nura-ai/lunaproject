@@ -1,5 +1,4 @@
 import random
-from datetime import datetime
 
 class Luna:
     def __init__(self, name="Диана"):
