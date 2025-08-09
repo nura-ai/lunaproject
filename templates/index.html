@@ -54,6 +54,18 @@
       navigator.serviceWorker.register("/static/service-worker.js")
         .then(() => console.log("🌙 Service Worker зарегистрирован"));
     }
+try {
+  const res = await fetch("/message", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text })
+  });
+  const data = await res.json();
+  chatBox.innerHTML += `<div class="luna">Луна: ${data.response}</div>`;
+  speak(data.response);
+} catch (error) {
+  chatBox.innerHTML += `<div class="luna error">Ошибка: ${error.message}</div>`;
+}
 
     window.speechSynthesis.onvoiceschanged = () => {};
   </script>
