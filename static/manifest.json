@@ -7,10 +7,15 @@
   "theme_color": "#7f5af0",
   "description": "Твоя ИИ-компаньонка, которая чувствует и говорит",
   "icons": [
-    {
-      "src": "/static/icon.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    }
-  ]
+  {
+    "src": "/static/icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "/static/icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }
+]
 }
