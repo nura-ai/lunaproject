@@ -31,7 +31,7 @@
       if (!text) return;
 
       const chatBox = document.getElementById("chat-box");
-      chatBox.innerHTML += <div class="user">Ты: ${text}</div>;
+      chatBox.innerHTML += `<div class="user">Ты: ${text}</div>`;
 
       const res = await fetch("/message", {
         method: "POST",
@@ -39,7 +39,7 @@
         body: JSON.stringify({ text })
       });
       const data = await res.json();
-      chatBox.innerHTML += <div class="luna">Луна: ${data.response}</div>;
+      chatBox.innerHTML += `<div class="luna">Луна: ${data.response}</div>`;
       speak(data.response);
       input.value = "";
     }
