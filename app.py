@@ -10,10 +10,14 @@ def index():
 
 @app.route("/message", methods=["POST"])
 def message():
-    user_text = request.json.get("text")
+    data = request.get_json()
+    user_text = data.get("text", "")
     emotion = luna.detect_emotion(user_text)
-    response = luna.respond(emotion)
-    return jsonify({"response": response})
+    # Здесь логика ответа
+    response_text = f"Ты сказала: {user_text}"
+    return jsonify({"response": response_text})
+    
+    
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5000)
