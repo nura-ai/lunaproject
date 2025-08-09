@@ -26,22 +26,27 @@
     }
 
     async function sendMessage() {
-      const input = document.getElementById("user-input");
-      const text = input.value;
-      if (!text) return;
+  const input = document.getElementById("user-input");
+  const text = input.value;
+  if (!text) return;
 
-      const chatBox = document.getElementById("chat-box");
-      chatBox.innerHTML += `<div class="user">Ты: ${text}</div>`;
+  const chatBox = document.getElementById("chat-box");
+  chatBox.innerHTML += `<div class="user">Ты: ${text}</div>`;
 
-      const res = await fetch("/message", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text })
-      });
-      const data = await res.json();
-      chatBox.innerHTML += `<div class="luna">Луна: ${data.response}</div>`;
-      speak(data.response);
-      input.value = "";
+  const res = await fetch("/message", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ text })
+  });
+
+  const data = await res.json();
+  chatBox.innerHTML += `<div class="luna">Луна: ${data.response}</div>`;
+  chatBox.scrollTop = chatBox.scrollHeight;
+  speak(data.response);
+  input.value = "";
+  input.focus();
+}
+
     }
 
     if ("serviceWorker" in navigator) {
