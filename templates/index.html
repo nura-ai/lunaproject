@@ -53,7 +53,7 @@
       navigator.serviceWorker.register("/static/service-worker.js")
         .then(() => console.log("🌙 Service Worker зарегистрирован"));
     }
-try {
+try 
   const res = await fetch("/message", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
