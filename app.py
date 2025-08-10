@@ -1,8 +1,6 @@
-from flask import Flask, render_template, request, jsonify
-from luna import Luna
+from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
-luna = Luna()
 
 @app.route("/")
 def index():
@@ -12,12 +10,14 @@ def index():
 def message():
     data = request.get_json()
     user_text = data.get("text", "")
-    emotion = luna.detect_emotion(user_text)
-    # Здесь логика ответа
-    response_text = f"Ты сказала: {user_text}"
+    
+    # Здесь можно добавить обработку текста, например:
+    if "привет" in user_text.lower():
+        response_text = "Привет! Я Луна 🌙"
+    else:
+        response_text = f"Ты сказала: {user_text}"
+
     return jsonify({"response": response_text})
-    
-    
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(host="0.0.0.0", port=5000)
