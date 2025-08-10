@@ -62,7 +62,7 @@ try
   const data = await res.json();
   chatBox.innerHTML += `<div class="luna">Луна: ${data.response}</div>`;
   speak(data.response);
-} catch (error) {
+ catch (error) {
   chatBox.innerHTML += `<div class="luna error">Ошибка: ${error.message}</div>`;
 }
 
