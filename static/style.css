@@ -1,10 +1,17 @@
 body {
-    background-color: #1a1a2e;
-    color: #eee;
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    padding-top: 50px;
+    #immersive-translate-popup {
+  all: initial;
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #2a2a3e;
+  color: #eee;
+  padding: 20px;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  z-index: 9999;
 }
 
 .chat-container {
