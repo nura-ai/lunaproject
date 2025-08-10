@@ -15,6 +15,14 @@
     <input type="text" id="user-input" placeholder="Напиши что-нибудь..." />
     <button onclick="sendMessage()">Отправить</button>
   </div>
+<script>
+  function sendMessage() {
+    const input = document.querySelector('input');
+    const message = input.value;
+    console.log("Отправлено:", message);
+    input.value = ""; // очищаем поле
+  }
+</script>
 
   <script>
     function speak(text) {
