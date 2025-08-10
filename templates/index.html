@@ -34,6 +34,7 @@
   const chatBox = document.getElementById("chat-box");
   chatBox.innerHTML += `<div class="user">Ты: ${text}</div>`;
 
+
   const res = await fetch("/message", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
